@@ -25,7 +25,7 @@ export const api = createApi({
     getUsers: build.query<ListResponse<User>, UserQuery>({
       query: ({page, startsWith, type}) => {
         let api = `http://localhost:3333/users?page=${page}`;
-        if (startsWith) {
+        if (startsWith !== "") {
           api = `http://localhost:3333/users?page=1&filter.${type}=$sw:${startsWith}`;
         }
         return api;

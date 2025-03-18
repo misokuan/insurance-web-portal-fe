@@ -8,16 +8,24 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { hideIcon, showIcon } from "@/lib/constants";
 import Pagination from "../components/Pagination";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 
 const UsersPage = () => {
   const { data: session, status } = useSession();
   const [page, setPage] = useState(1);
-  const [startsWith, setStartsWith] = useState(null);
-  const [type, setType] = useState(null);
+  const [startsWith, setStartsWith] = useState("");
+  const [type, setType] = useState("");
   const [showEmail, setShowEmail] = useState(false);
   const { data: users, isFetching, isSuccess } = useGetUsersQuery({ page, startsWith, type })
   const dispatch = useAppDispatch();
-  const usersList = showEmail ? useAppSelector(selectAllUsers) : useAppSelector(selectAllUsersMasked);
+ 
+
+  const ReturnUsersList = () => {
+    const selection = showEmail ? selectAllUsers : selectAllUsersMasked;
+    return useAppSelector(selection);
+  }
+
+  const usersList = ReturnUsersList();
 
   useEffect(() => {
     // save users to state once fetched
@@ -38,7 +46,7 @@ const UsersPage = () => {
     }
   }
 
-  const filterUser = (firstLetter: any, paramType: any) => {
+  const filterUser = (firstLetter: string, paramType: string) => {
     setStartsWith(firstLetter);
     setType(paramType);
   }
@@ -87,7 +95,7 @@ const UsersPage = () => {
             <tbody>
               {usersList.map((user, i) => (
                 <tr key={i} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                  <td className="px-6 py-4"><img className="w-10 h-10 rounded-full" src={user.photo} alt="Rounded avatar" /></td>
+                  <td className="px-6 py-4"><Image width="10" height="10" className="w-10 h-10 rounded-full" src={user.photo} alt="Rounded avatar" /></td>
                   <td className="px-6 py-4">{user.firstName}</td>
                   <td className="px-6 py-4">{user.lastName}</td>
                   <td className="px-6 py-4">{user.email}</td>
