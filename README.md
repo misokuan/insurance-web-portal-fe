@@ -1,24 +1,31 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Project setup
+
+1. Clone this repository
+
+```bash
+# navigate to the repository
+$ cd path-to-cloned-repository
+
+# go to the branch
+$ git checkout -b main
+
+# install the necessary packages
+$ npm install
+```
+
+## Compile and run the project
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To test with MS assessment, follow the steps in https://github.com/misokuan/insurance-web-portal under 'Compile and run the project' to set up.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Once MS is up and running, go to http://localhost:3000/ for the first sign in screen.
 
 ## Learn More
 
