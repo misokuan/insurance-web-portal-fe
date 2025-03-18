@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from './components/Login';
+import SignIn from './components/SignIn';
 
 export default function Home() {
-  return (<Login />)
+  return (<SignIn />)
 };

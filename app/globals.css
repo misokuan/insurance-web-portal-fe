@@ -36,7 +36,7 @@ body {
   float:left;
 }
 
-.login {
+.signIn {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -45,6 +45,14 @@ body {
 
 .signOut {
   float: right;
+}
+
+.error {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .section {
