@@ -81,7 +81,7 @@ const UsersPage = () => {
           <div>
             { filterButton('Filter by G (First Name)', () => filterUser('G', 'firstName')) }
             { filterButton('Filter by W (Last Name)', () => filterUser('W', 'lastName')) }
-            { filterButton('Reset', () => filterUser(null, null)) }
+            { filterButton('Reset', () => filterUser("", "")) }
           </div>
           <table className="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
